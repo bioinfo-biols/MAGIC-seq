@@ -1,4 +1,4 @@
-# MAGIC Pipeline
+# MAGIC-seq Pipeline
 
 The following files/parameters are commonly required :
 - FASTQ files (Read 1 containing the spatial information and the UMI and read 2 containing the genomic sequence) 
