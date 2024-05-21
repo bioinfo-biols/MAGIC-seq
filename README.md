@@ -9,7 +9,7 @@ The following files/parameters are commonly required :
 - An annotation file in GTF or GFF3 format (optional when using a transcriptome)
 - The file containing the barcodes and array coordinates (look at the folder "ids" to use it as a reference). 
 
-Preprocessing of MAGIC-seq raw data:
+## Preprocessing of MAGIC-seq raw data:
 
 1. Triple/Nine grid chip data
 ```
@@ -173,5 +173,57 @@ rm -r ${sampath}/${sample}_split
 --outReadsUnmapped Fastx \
 --runThreadN ${t_num}
 
-
 ```
+
+##  Convert  gene expression matrix to anndata
+
+1. Triple/Nine grid chip data (T9-50um-70barcode)
+```
+from st_processing import get_adata_STARsolo
+sample='sample1-1'
+file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/result_STARsolo/'+sample+'/STARsolo/'
+image_file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/Image/'
+reg='reg7'
+HE_point1=(384,614)
+Spot_point1=(369,556)
+HE_point2=(4623,4742)
+Spot_point2=(4634, 4634)
+line_point_r1c1=(746,676) 
+line_point_r1c70=(773,4194)
+line_point_r70c1=(4266,632)
+adata=get_adata_STARsolo(sample,chip_type,reg,channels_num,barcode_num,res_um=res_um,only_HE=False,
+                        img_file=True,EM=True,Velocyto=False,soloFeatures='GeneFull',raw=True,species='mouse',
+                        file_path=file_path,image_file_path=image_file_path,Barcode_file_path=Barcode_file_path,geneinfo_path=geneinfo_path,
+                        HE_point1=HE_point1,Spot_point1=Spot_point1,HE_point2=HE_point2,Spot_point2=Spot_point2,
+                        line_point_r1c1=line_point_r1c1,line_point_r1c70=line_point_r1c70,line_point_r70c1=line_point_r70c1)
+```
+2. Splicing grid chip data(M9-15um-70barcode)
+```
+from st_processing import get_adata_STARsolo
+sample='ZOO9-3'
+file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/result_STARsolo/'+sample+'/STARsolo/'
+image_file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Image/'
+Barcode_file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Barcode-M9-70/'
+
+res_um=15 
+channels_num=210 
+barcode_num=70 
+reg='reg1' 
+chip_type='M9'
+
+HE_point1=(138,169)
+Spot_point1=(112,227)
+HE_point2=(4840,4691)
+Spot_point2=(4827, 4720)
+line_point_r1c1=(735,694) 
+line_point_r1c70=(740,4426)
+line_point_r70c1=(4461,669)
+
+adata=get_adata_STARsolo(sample,chip_type,reg,channels_num,barcode_num,res_um=res_um,add_M9_15=True,
+                        img_file=True,EM=True,Velocyto=True,soloFeatures='GeneFull',raw=True,species='mouse',
+                        file_path=file_path,image_file_path=image_file_path,Barcode_file_path=Barcode_file_path,geneinfo_path=geneinfo_path,
+                        HE_point1=HE_point1,Spot_point1=Spot_point1,HE_point2=HE_point2,Spot_point2=Spot_point2,
+                        line_point_r1c1=line_point_r1c1,line_point_r1c70=line_point_r1c70,line_point_r70c1=line_point_r70c1)
+```
+
+
