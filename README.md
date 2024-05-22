@@ -205,9 +205,9 @@ adata=get_adata_STARsolo(sample,chip_type,reg,channels_num,barcode_num,res_um=re
 ```
 from st_processing import get_adata_STARsolo
 sample='ZOO9-3'
-file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/result_STARsolo/'+sample+'/STARsolo/'
-image_file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Image/'
-Barcode_file_path='/histor/zhao/pangkun/JupyterLab/Task/Project/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Barcode-M9-70/'
+file_path='/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/result_STARsolo/'+sample+'/STARsolo/'
+image_file_path='/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Image/'
+Barcode_file_path='/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Barcode-M9-70/'
 
 res_um=15 
 channels_num=210 
