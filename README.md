@@ -22,7 +22,7 @@ ID=${project_path}/data/Barcode-T9-70/T9-ids-barcode.txt
 #result_path
 st_path=${project_path}/data/result_STARsolo/${sample}
 #ref-info
-MAP=/database/ref_mm10_M23_release98/mm10_filtered_star_150bp_index
+MAP=/database/ref_mm10_M23_release98/mm10_filtered_star_index
 ANN=/database/ref_mm10_M23_release98/mm10_filtered.gtf
 #Other-info
 log_file=${st_path}/${sample}_st_log.txt
@@ -104,7 +104,7 @@ ID=${project_path}/data/Barcode-M9-70/M9_ST_ids_barcode_chip1_C18.txt
 #result_path
 st_path=${project_path}/data/result_STARsolo/${sample}
 #ref-info
-MAP=/database/ref_mm10_M23_release98/mm10_filtered_star_150bp_index
+MAP=/database/ref_mm10_M23_release98/mm10_filtered_star_index
 ANN=/database/ref_mm10_M23_release98/mm10_filtered.gtf
 #Other-info
 log_file=${st_path}/${sample}_st_log.txt
