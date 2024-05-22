@@ -9,6 +9,9 @@ The following files/parameters are commonly required :
 - An annotation file in GTF or GFF3 format (optional when using a transcriptome)
 - The file containing the barcodes and array coordinates (look at the folder "ids" to use it as a reference). 
 
+
+For the QC step, the stpipeline/common/filterInputReads.py in st_pipeline must be replaced with the supplied filterInputReads.py to generate the QC post-fastq for the subsequent steps.
+
 ## Preprocessing of MAGIC-seq raw data:
 
 1. Triple/Nine grid chip data
