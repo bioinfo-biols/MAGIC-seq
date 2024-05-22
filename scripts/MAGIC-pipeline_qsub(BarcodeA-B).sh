@@ -128,5 +128,7 @@ mv STARsolo/${sample}_Unmapped.out.mate1 STARsolo/${sample}_Unmapped_R2.fastq
 mv STARsolo/${sample}_Unmapped.out.mate2 STARsolo/${sample}_Unmapped_R1.fastq 
 time pigz -p ${t_num} STARsolo/*_Unmapped_*.fastq
 
+echo 'End-----------'
+echo \$(date +%T)
 
 "  > ${project_path}/qsub/qsub_solo/${sample}.St.sh
