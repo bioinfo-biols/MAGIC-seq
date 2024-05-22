@@ -184,10 +184,18 @@ rm -r ${sampath}/${sample}_split
 1. Triple/Nine grid chip data (T9-50um-70barcode)
 ```
 from st_processing import get_adata_STARsolo
+
 sample='sample1-1'
+res_um=50 #点直径
+channels_num=70 #通道数
+barcode_num=70 #barcode数
+chip_type='T9'
+Barcode_file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/Barcode-T9-70/'
 file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/result_STARsolo/'+sample+'/STARsolo/'
 image_file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/Image/'
 reg='reg7'
+
+#Point coordinates for image registration
 HE_point1=(384,614)
 Spot_point1=(369,556)
 HE_point2=(4623,4742)
@@ -212,9 +220,10 @@ Barcode_file_path='/MAGIC_seq/Mouse_Adult_Brain_M9_70_15um/data/Barcode-M9-70/'
 res_um=15 
 channels_num=210 
 barcode_num=70 
-reg='reg1' 
+reg='reg1'
 chip_type='M9'
 
+#Point coordinates for image registration
 HE_point1=(138,169)
 Spot_point1=(112,227)
 HE_point2=(4840,4691)
