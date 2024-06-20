@@ -22,7 +22,7 @@ ANN=/ref_mm10_M23_release98/mm10_filtered.gtf
 #Other-info
 log_file=${st_path}/${sample}_st_log.txt
 t_num=8
-node=batch
+
 
 echo "
 
