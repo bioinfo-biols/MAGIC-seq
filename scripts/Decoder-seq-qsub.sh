@@ -22,6 +22,7 @@ ANN=/database/ref_mm10_M23_release98/mm10_filtered.gtf
 #Other-info
 log_file=${st_path}/${sample}_st_log.txt
 t_num=20
+node=batch
 
 echo "
 
@@ -136,3 +137,14 @@ echo \$(date +%T)
 chmod -R 775 ${st_path}
 
 "  > ${project_path}/qsub/qsub_solo/${sample}.St.sh
+echo "#PBS -N ${sample}
+#PBS -l nodes=1:ppn=${t_num}
+#PBS -l walltime=72:00:00
+#PBS -j oe
+#PBS -q ${node}
+
+cd ${project_path}/qsub/qsub_solo/
+
+bash ${sample}.St.sh
+
+"  > ${project_path}/qsub/qsub_solo/${sample}.St.qsub
