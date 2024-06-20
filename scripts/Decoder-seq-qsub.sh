@@ -42,10 +42,10 @@ cd ${st_path}
 
 mkdir ./STARsolo ./tmp
 
-# 定义文件列表
+
 files=(001 002 003 004 005 006 007 008 009 010)
 
-# 遍历文件列表
+
 for file in \"\${files[@]}\"
 do
     seqkit subseq -j 10 -r 1:8  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test1-8.fastq.gz
