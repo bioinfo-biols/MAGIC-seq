@@ -16,7 +16,7 @@ ID=${project_path}/data/Barcode-T3-50/T3-ids-barcode.txt
 #result_path
 st_path=${project_path}/data/result_STARsolo/${sample}
 #ref-info
-MAP=/database/ref_mm10_M23_release98/mm10_filtered_star_150bp_index
+MAP=/database/ref_mm10_M23_release98//mm10_filtered_star_index
 ANN=/database/ref_mm10_M23_release98/mm10_filtered.gtf
 
 #Other-info
