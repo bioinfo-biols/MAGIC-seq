@@ -1,0 +1,10 @@
+Methods,area(mm2),spot,barcode
+MAGIC(15um),42,44100,158
+MAGIC(20um),346,202500,318
+MAGIC(50um),467,44100,158
+10x Visium(55um),42,4992,4992
+DBiT-seq(50um),25,2500,100
+DBiT-seq(10um),1,2500,100
+Decoder-seq(15um),9,10000,200
+Decoder-seq(25um),25,10000,200
+Decoder-seq(50um),25,2500,100
