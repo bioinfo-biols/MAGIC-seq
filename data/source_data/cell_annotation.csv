@@ -1,0 +1,103 @@
+cell,cell_Region,cell_type,cell_class
+Blood-Erythrocyte,Blood,Blood,Non-neuronal
+Blood-Erythroid progenitor,Blood,Blood,Non-neuronal
+Blood-Platelet,Blood,Blood,Non-neuronal
+Choroid plexus-Choroid plexus,Choroid plexus,Choroid plexus,Non-neuronal
+Ectoderm-Olfactory epithelium,Ectoderm,Epithelium,Non-neuronal
+Ependymal-Forebrain,Ependymal,Ependymal,Non-neuronal
+Ependymal-Mixed region,Ependymal,Ependymal,Non-neuronal
+Fibroblast-Arachnoid,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Arachnoid barrier cells,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Dura,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Early fibroblasts,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Intermediate meninges 1,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Intermediate meninges 2,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Perivascular fibroblast-like cells,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Pia 1,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Pia 2,Fibroblast,Fibroblast,Non-neuronal
+Fibroblast-Pia 3,Fibroblast,Fibroblast,Non-neuronal
+Gastrulation-Epiblast,Gastrulation,Gastrulation,Non-neuronal
+Gastrulation-Node,Gastrulation,Gastrulation,Non-neuronal
+Glioblast-Forebrain,Glioblast,Glioblast,Non-neuronal
+Glioblast-Forebrain astrocyte,Glioblast,Glioblast,Non-neuronal
+Glioblast-Hindbrain,Glioblast,Glioblast,Non-neuronal
+Glioblast-Midbrain,Glioblast,Glioblast,Non-neuronal
+Glioblast-Mixed region,Glioblast,Glioblast,Non-neuronal
+Glioblast-Mixed region astrocytes,Glioblast,Glioblast,Non-neuronal
+Glioblast-PreOPC,Glioblast,Glioblast,Non-neuronal
+Glioblast-Spinal cord,Glioblast,Glioblast,Non-neuronal
+Immune-Axon tract-associated microglia,Immune,Immune,Non-neuronal
+Immune-Cycling microglia,Immune,Immune,Non-neuronal
+Immune-Cycling perivascular macrophages,Immune,Immune,Non-neuronal
+Immune-Early macrophage,Immune,Immune,Non-neuronal
+Immune-Infiltrating immune,Immune,Immune,Non-neuronal
+Immune-Non-cycling microglia,Immune,Immune,Non-neuronal
+Immune-Non-cycling perivascular macrophages,Immune,Immune,Non-neuronal
+Mesenchyme-Mesenchyme,Mesenchyme,Mesenchyme,Non-neuronal
+Neuroblast-Cajal-Retzius,Neuroblast,Cajal-Retzius,Neuron
+Neuroblast-Forebrain,Neuroblast,Neuroblast,Neuron
+Neuroblast-Forebrain GABAergic,Neuroblast,GABAergic,Neuron
+Neuroblast-Forebrain glutamatergic,Neuroblast,Glutamatergic,Neuron
+Neuroblast-Hindbrain,Neuroblast,Neuroblast,Neuron
+Neuroblast-Hindbrain glutamatergic,Neuroblast,Glutamatergic,Neuron
+Neuroblast-Hindbrain glycinergic,Neuroblast,Glycinergic,Neuron
+Neuroblast-Midbrain,Neuroblast,Neuroblast,Neuron
+Neuroblast-Midbrain GABAergic,Neuroblast,GABAergic,Neuron
+Neuroblast-Midbrain glutamatergic,Neuroblast,Glutamatergic,Neuron
+Neuroblast-Mixed region,Neuroblast,Neuroblast,Neuron
+Neuroblast-Mixed region glutamatergic,Neuroblast,Glutamatergic,Neuron
+Neuroblast-Neuronal intermediate progenitor,Neuroblast,Neuronal intermediate progenitor,Neuron
+Neuroblast-Thalamus glutamatergic,Neuroblast,Glutamatergic,Neuron
+Neuron-Cajal-Retzius,Neuron,Cajal-Retzius,Neuron
+Neuron-Cerebellum GABAergic,Neuron,GABAergic,Neuron
+Neuron-Cerebellum glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Cortical or hippocampal glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Diencephalon glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Dorsal midbrain glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Epithalamus glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Forebrain GABAergic,Neuron,GABAergic,Neuron
+Neuron-Forebrain glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Hindbrain GABAergic,Neuron,GABAergic,Neuron
+Neuron-Hindbrain glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Hindbrain glycinergic,Neuron,Glycinergic,Neuron
+Neuron-Hindbrain serotoninergic,Neuron,Serotoninergic,Neuron
+Neuron-Hypothalamus,Neuron,Neuron,Neuron
+Neuron-Hypothalamus glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Midbrain GABAergic,Neuron,GABAergic,Neuron
+Neuron-Midbrain dopaminergic,Neuron,Dopaminergic,Neuron
+Neuron-Midbrain glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Mixed region,Neuron,Neuron,Neuron
+Neuron-Mixed region GABAergic,Neuron,GABAergic,Neuron
+Neuron-Mixed region and neurotransmitter,Neuron,Neurotransmitter,Neuron
+Neuron-Mixed region glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Motor neuron,Neuron,Neuron,Neuron
+Neuron-Posterior hindbrain glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Sensory neuron,Neuron,Neuron,Neuron
+Neuron-Spinal cord glutamatergic,Neuron,Glutamatergic,Neuron
+Neuron-Spinal cord glycinergic,Neuron,Glycinergic,Neuron
+Olfactory ensheathing cell-Olfactory ensheathing cell,Olfactory ensheathing cell,Ensheathing cell,Non-neuronal
+Oligodendrocyte-Committed oligodendrocyte precursor,Oligodendrocyte,Oligodendrocyte,Non-neuronal
+Oligodendrocyte-Oligodendrocyte,Oligodendrocyte,Oligodendrocyte,Non-neuronal
+Oligodendrocyte-Oligodendrocyte precursor cell,Oligodendrocyte,Oligodendrocyte,Non-neuronal
+Pineal gland-Pineal gland,Pineal gland,Pineal gland,Non-neuronal
+Radial glia-Bergmann glia,Radial glia,Radial glia,Non-neuronal
+Radial glia-Cortical hem,Radial glia,Radial glia,Non-neuronal
+Radial glia-Diencephalic roof plate,Radial glia,Radial glia,Non-neuronal
+Radial glia-Diencephalon,Radial glia,Radial glia,Non-neuronal
+Radial glia-Dorsal diencephalon,Radial glia,Radial glia,Non-neuronal
+Radial glia-Dorsal forebrain,Radial glia,Radial glia,Non-neuronal
+Radial glia-Dorsal hindbrain,Radial glia,Radial glia,Non-neuronal
+Radial glia-Dorsal hindbrain and spinal cord,Radial glia,Radial glia,Non-neuronal
+Radial glia-Ependymal-like,Radial glia,Radial glia,Non-neuronal
+Radial glia-Forebrain,Radial glia,Radial glia,Non-neuronal
+Radial glia-Hindbrain,Radial glia,Radial glia,Non-neuronal
+Radial glia-Hypothalamus,Radial glia,Radial glia,Non-neuronal
+Radial glia-Late isthmic organizer,Radial glia,Radial glia,Non-neuronal
+Radial glia-Midbrain,Radial glia,Radial glia,Non-neuronal
+Radial glia-Spinal cord,Radial glia,Radial glia,Non-neuronal
+Schwann cell-Schwann cell,Schwann cell,Schwann cell,Non-neuronal
+Subcommissural organ-Subcommissural organ hypendymal cell,Subcommissural organ,Hypendymal cell,Non-neuronal
+Vascular-Angioblast,Vascular,Angioblast,Non-neuronal
+Vascular-Endothelial,Vascular,Endothelial,Non-neuronal
+Vascular-Pericyte,Vascular,Pericyte,Non-neuronal
+Vascular-Vascular smooth muscle,Vascular,Vascular smooth muscle,Non-neuronal
