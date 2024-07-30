@@ -182,7 +182,7 @@ def InputReadsFilter(fw,
             umi_seq = None
 
         # If reverse read startwith 'TSO'...
-        if not discard_read and sequence_rv.startswith('AAGCAGTGGTATCAACGCAGAGTGAATGGG'):
+        if not discard_read and len(regex.findall(r'(?:%s){s<=%s}' % ('AAGCAGTGGTATCAACGCAGAGTGAATGGG', 2),sequence_rv[0:30], overlapped=False))>0:
             dropped_TSO += 1
             sequence_rv = sequence_rv[30:]
             quality_rv = quality_rv[30:]
