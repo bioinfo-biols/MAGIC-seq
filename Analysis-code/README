@@ -1,1 +1,7 @@
- Nine grid chip data analysis 
+9region.ipynb ： Nine grid chip data analysis 
+Benchmark.ipynb ： Benchmark analysis 
+Brain-M9-15um.ipynb ： Figure3 relevant data analyses
+Embryo-M9-20um.ipynb ： Figure4 relevant data analyses
+Mouse_Embryo_Brain_3D.ipynb： Figure5 relevant data analyses
+fluorescence_data.ipynb： Fluorescence data analyses
+
