@@ -10,7 +10,7 @@ The following files/parameters are commonly required :
 - The file containing the barcodes and array coordinates (look at the folder "data/Barcode" to use it as a reference). 
 
 
-For the QC step, the stpipeline/common/filterInputReads.py in st_pipeline must be replaced with the supplied filterInputReads.py to generate the QC post-fastq for the subsequent steps.
+For the QC step(optional), the stpipeline/common/filterInputReads.py in st_pipeline must be replaced with the supplied filterInputReads.py to generate the QC post-fastq for the subsequent steps.
 
 
 ## Preprocessing of MAGIC-seq raw data:
