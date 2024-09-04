@@ -75,8 +75,8 @@ rm -r ${sampath}/${sample}_split
 #3.Generate gene expression matrix
 /software/STAR/source/STAR  --genomeDir ${MAP} \
   --outFileNamePrefix ${st_path}/STARsolo/${sample}_ \
-  --readFilesCommand cat \\
-  --readFilesIn st_R2.fastq st_R1.fastq \\
+  --readFilesCommand cat \
+  --readFilesIn st_R2.fastq st_R1.fastq \
   --outSAMattributes NH HI nM AS CR UR CB UB GX GN sS sQ sM sF \
   --outSAMtype BAM SortedByCoordinate \
   --limitBAMsortRAM 121539607552 \
