@@ -5,6 +5,7 @@ This is a public repository for all code connected to MAGIC-seq.
 ## Schematic workflow
 
 ![1726044755942](https://github.com/user-attachments/assets/d390e65d-b888-4a68-9179-9261df94e9da)
+![image](https://github.com/user-attachments/assets/0e60daec-12d7-45d2-a91a-7c963f18612f)
 
 ## MAGIC-seq Pipeline
 
