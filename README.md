@@ -16,6 +16,11 @@ For the QC step(optional), the stpipeline/common/filterInputReads.py in st_pipel
 Please cite: Zhu, J., Pang, K., Hu, B. et al. Custom microfluidic chip design enables cost-effective three-dimensional spatiotemporal transcriptomics with a wide field of view. Nat Genet (2024). https://doi.org/10.1038/s41588-024-01906-4
 
 
+## Schematic workflow
+
+![1726044755942](https://github.com/user-attachments/assets/d390e65d-b888-4a68-9179-9261df94e9da)
+
+
 ## Preprocessing of MAGIC-seq raw data:
 
 1. Triple/Nine grid chip data
