@@ -2,7 +2,6 @@
 
 This is a public repository for all code connected to MAGIC-seq.
 
-Please cite: Zhu, J., Pang, K., Hu, B. et al. Custom microfluidic chip design enables cost-effective three-dimensional spatiotemporal transcriptomics with a wide field of view. Nat Genet (2024). https://doi.org/10.1038/s41588-024-01906-4
 
 The following files/parameters are commonly required :
 - FASTQ files (Read 1 containing the spatial information and the UMI and read 2 containing the genomic sequence) 
@@ -12,6 +11,8 @@ The following files/parameters are commonly required :
 
 
 For the QC step(optional), the stpipeline/common/filterInputReads.py in st_pipeline must be replaced with the supplied filterInputReads.py to generate the QC post-fastq for the subsequent steps.
+
+Please cite: Zhu, J., Pang, K., Hu, B. et al. Custom microfluidic chip design enables cost-effective three-dimensional spatiotemporal transcriptomics with a wide field of view. Nat Genet (2024). https://doi.org/10.1038/s41588-024-01906-4
 
 
 ## Preprocessing of MAGIC-seq raw data:
