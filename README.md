@@ -1,4 +1,4 @@
-# MAGIC-seq Pipeline
+# MAGIC-seq
 
 This is a public repository for all code connected to MAGIC-seq.
 
@@ -6,6 +6,7 @@ This is a public repository for all code connected to MAGIC-seq.
 
 ![1726044755942](https://github.com/user-attachments/assets/d390e65d-b888-4a68-9179-9261df94e9da)
 
+## MAGIC-seq Pipeline
 
 The following files/parameters are commonly required :
 - FASTQ files (Read 1 containing the spatial information and the UMI and read 2 containing the genomic sequence) 
