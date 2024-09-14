@@ -193,9 +193,9 @@ rm -r ${sampath}/${sample}_split
 from st_processing import get_adata_STARsolo
 
 sample='sample1-1'
-res_um=50 #点直径
-channels_num=70 #通道数
-barcode_num=70 #barcode数
+res_um=50 #resolution
+channels_num=70 #Number of channels
+barcode_num=70 #Number of barcodes
 chip_type='T9'
 Barcode_file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/Barcode-T9-70/'
 file_path='/MAGIC_seq/Mouse_Adult_Organ_T9_70_50um/data/result_STARsolo/'+sample+'/STARsolo/'
