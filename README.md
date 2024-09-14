@@ -50,11 +50,9 @@ files=(001 002 003 004 005 006 007 008 009 010)
 
 for file in \"\${files[@]}\"
 do
-    seqkit subseq -j ${t_num} -r 1:8  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test1-8.fastq.gz
-    seqkit subseq -j ${t_num} -r 27:34  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test27-34.fastq.gz
-    seqkit subseq -j ${t_num} -r 53:72  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test53-72.fastq.gz
-    seqkit concat test1-8.fastq.gz test27-34.fastq.gz -j ${t_num} -o test.fastq.gz
-    seqkit concat test.fastq.gz test53-72.fastq.gz -j ${t_num} -o ${sample}_\${file}_reformat_R1.fastq.gz
+    seqkit subseq -j 10 -r 1:8  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test1-8.fastq.gz
+    seqkit subseq -j 10 -r 27:46  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o test27-75.fastq.gz
+    seqkit concat test1-8.fastq.gz test27-75.fastq.gz -j 10 -o ${sample}_\${file}_reformat_R1.fastq.gz
     rm test*gz
 done
 
