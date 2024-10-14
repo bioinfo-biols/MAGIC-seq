@@ -51,7 +51,6 @@ for file in \"\${files[@]}\"
 do
     seqkit subseq -j 10 -r 1:28  ${sampath}/${sample}_split/out/${sample}_R1.part_\${file}.fastq.gz -o ${sample}_\${file}_reformat_R1.fastq.gz
 
-    rm test*gz
 done
 
 
