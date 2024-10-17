@@ -22,6 +22,7 @@ The following files/parameters are commonly required :
 
 
 For the QC step(optional), the stpipeline/common/filterInputReads.py in st_pipeline must be replaced with the supplied filterInputReads.py to generate the QC post-fastq for the subsequent steps.
+QC step can be omitted to save most of the code running time.
 
 
 ## Preprocessing of MAGIC-seq raw data:
