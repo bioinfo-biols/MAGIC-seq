@@ -160,6 +160,318 @@ def get_piexl_coods(line_point_r1c1,line_point_r70c1,line_point_r1c70,barcode_nu
     else:
         print('No chip coord')
     return np.array(pixel_coords),(x_dis+y_dis)/4
+def get_piexl_coods_Mchip(line_point_r1c1,line_point_r210c1,line_point_r1c210,channels_num,barcode_num,chip_type,Barcode_file_path,add_M9_15=False,add_M9_20=False):
+    file_C1_9=Barcode_file_path+chip_type+'-C1-C'+str(18)+'.txt'
+    x1_a,x1_b,x1_c=getLinearEquation_new(line_point_r1c1,line_point_r210c1)#col line_A1
+    y1_a,y1_b,y1_c=getLinearEquation_new(line_point_r1c1,line_point_r1c210)#row line_B1
+    import numpy as np
+    import pandas as pd
+    #第一个点到line2的距离
+    if barcode_num==70 and chip_type=='M9':
+        x_dis=get_distance_from_point_to_line(line_point_r1c210, x1_a,x1_b,x1_c)[3]/((barcode_num-1)*3+7)
+        y_dis=get_distance_from_point_to_line(line_point_r210c1,y1_a,y1_b,y1_c)[3]/((barcode_num-1)*3+7)
+    elif barcode_num==150 and chip_type=='M9':
+        x_dis=get_distance_from_point_to_line(line_point_r1c210, x1_a,x1_b,x1_c)[3]/((barcode_num-1)*3+15)
+        y_dis=get_distance_from_point_to_line(line_point_r210c1,y1_a,y1_b,y1_c)[3]/((barcode_num-1)*3+15)
+    else:
+        print(f'Chip type error: {chip_type}')
+    line_X_A={}
+    line_Y_B={}
+
+    n=0
+    if barcode_num==70 and chip_type=='M9':
+        for i in range(0,channels_num):
+            n+=1
+            if n>0 and n<(barcode_num+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+
+            elif n>barcode_num and n<(barcode_num*2+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+2.5),2) + pow(x_dis*(i+2.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+2.5),2) + pow(x_dis*(i+2.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+2.5),2) + pow(y_dis*(i+2.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+2.5),2) + pow(y_dis*(i+2.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+            elif n>barcode_num*2 and n<(barcode_num*3+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+5),2) + pow(x_dis*(i+5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+5),2) + pow(x_dis*(i+5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+5),2) + pow(y_dis*(i+5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+5),2) + pow(y_dis*(i+5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)    
+    elif barcode_num==150 and chip_type=='M9':
+        for i in range(0,channels_num):
+            n+=1
+            if n>0 and n<(barcode_num+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+
+            elif n>barcode_num and n<(barcode_num*2+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+6.5),2) + pow(x_dis*(i+6.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+6.5),2) + pow(x_dis*(i+6.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+6.5),2) + pow(y_dis*(i+6.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+6.5),2) + pow(y_dis*(i+6.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+            elif n>barcode_num*2 and n<(barcode_num*3+1) :
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+13),2) + pow(x_dis*(i+13)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+13),2) + pow(x_dis*(i+13)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+13),2) + pow(y_dis*(i+13)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+13),2) + pow(y_dis*(i+13)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)    
+    else:
+        print(f'Chip type error: {chip_type}')
+    if add_M9_15:
+        for i in [barcode_num ,barcode_num+1 ,barcode_num*2 ,barcode_num*2+1]:
+            n+=1
+            if i < (barcode_num+2):
+
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+0.25),2) + pow(x_dis*(i+0.25)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+0.25),2) + pow(x_dis*(i+0.25)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+0.25),2) + pow(y_dis*(i+0.25)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+0.25),2) + pow(y_dis*(i+0.25)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+            elif i > (barcode_num+2) and i < (barcode_num*2+2) :
+
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+0.25+2.5),2) + pow(x_dis*(i+0.25+2.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+0.25+2.5),2) + pow(x_dis*(i+0.25+2.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+0.25+2.5),2) + pow(y_dis*(i+0.25+2.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+0.25+2.5),2) + pow(y_dis*(i+0.25+2.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2) 
+        all_n=n
+    elif add_M9_20:
+        for i in [barcode_num ,barcode_num+1 ,barcode_num+2 ,barcode_num+3 ,barcode_num+4 ,barcode_num+5 ,barcode_num+6,
+        barcode_num*2 ,barcode_num*2+1,barcode_num*2+2,barcode_num*2+3,barcode_num*2+4,barcode_num*2+5,barcode_num*2+6]:
+            n+=1
+            if i < (barcode_num+7):
+
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*i,2) + pow(x_dis*i*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*i,2) + pow(y_dis*i*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)
+            elif i > (barcode_num+7) and i < (barcode_num*2+7) :
+
+                if x1_a < 0 :
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+6.5),2) + pow(x_dis*(i+6.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)     
+                else:
+                    c1=x1_c+abs(x1_b)*math.sqrt(pow(x_dis*(i+6.5),2) + pow(x_dis*(i+6.5)*(x1_a/x1_b),2)) 
+                    line_X_A['X_A_line'+str(n)]=(x1_a,x1_b,c1)
+                if y1_a < 0 :
+                    c2=y1_c+abs(y1_b)*math.sqrt(pow(y_dis*(i+6.5),2) + pow(y_dis*(i+6.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2)     
+                else:
+                    c2=y1_c-abs(y1_b)*math.sqrt(pow(y_dis*(i+6.5),2) + pow(y_dis*(i+6.5)*(y1_a/y1_b),2)) 
+                    line_Y_B['Y_B_line'+str(n)]=(y1_a,y1_b,c2) 
+        all_n=n
+
+    pixel_coords=[]
+    C1_9=['C' + str(i) for i in pd.read_csv(file_C1_9,header=None)[0]][0:18:2]
+    #C1_9=list(Spot_coordinate_uniq.drop_duplicates(['barcode-C'])['barcode-C'])
+    for reg_i in C1_9:
+        if (chip_type=='M9') and (reg_i == C1_9[0]):
+            for m in range(barcode_num,0,-1):
+                for n in range(1,(barcode_num+1)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])
+        elif (chip_type=='M9') and (reg_i == C1_9[1]):
+            for m in range(1+barcode_num,(barcode_num+1+barcode_num)):
+                for n in range(1,(barcode_num+1)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])
+        elif (chip_type=='M9') and (reg_i == C1_9[2]):
+            for m in range(barcode_num+barcode_num*2,0+barcode_num*2,-1):
+                for n in range(1,(barcode_num+1)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])                
+        elif (chip_type=='M9') and (reg_i == C1_9[3]):
+            for m in range(barcode_num,0,-1):
+                for n in range(barcode_num+barcode_num,0+barcode_num,-1):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])  
+        elif (chip_type=='M9') and (reg_i == C1_9[4]):
+            for m in range(1+barcode_num,(barcode_num+1+barcode_num)):
+                for n in range(barcode_num+barcode_num,0+barcode_num,-1):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)]) 
+        elif (chip_type=='M9') and (reg_i == C1_9[5]):
+            for m in range(barcode_num+barcode_num*2,0+barcode_num*2,-1):
+                for n in range(barcode_num+barcode_num,0+barcode_num,-1):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])    
+        elif (chip_type=='M9') and (reg_i == C1_9[6]):
+            for m in range(barcode_num,0,-1):
+                for n in range(1+barcode_num*2,(barcode_num+1+barcode_num*2)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])    
+        elif (chip_type=='M9') and (reg_i == C1_9[7]):
+            for m in range(1+barcode_num,(barcode_num+1+barcode_num)):
+                for n in range(1+barcode_num*2,(barcode_num+1+barcode_num*2)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])
+        elif (chip_type=='M9') and (reg_i == C1_9[8]):
+            for m in range(barcode_num+barcode_num*2,0+barcode_num*2,-1):
+                for n in range(1+barcode_num*2,(barcode_num+1+barcode_num*2)):
+                    a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                    a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                    D = a0*b1 - a1*b0
+                    y_row = (b0*c1 - b1*c0)/D
+                    x_col = (a1*c0 - a0*c1)/D
+                    pixel_coords.append([int(x_col),int(y_row)])
+        else:
+            print('No chip coord')
+            
+    if add_M9_15:
+        pixel_coords_all=[]
+        spot_coords_all=[]
+        for m in [channels_num + i for i in range(1,5)]:
+            for n in range(1,(all_n+1)):
+                a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                D = a0*b1 - a1*b0
+                y_row = (b0*c1 - b1*c0)/D
+                x_col = (a1*c0 - a0*c1)/D
+                pixel_coords_all.append([int(x_col),int(y_row)])
+                spot_coords_all.append([int(m),int(n)])
+        for n in [channels_num + i for i in range(1,5)]:
+            for m in range(1,(all_n+1)):
+                a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                D = a0*b1 - a1*b0
+                y_row = (b0*c1 - b1*c0)/D
+                x_col = (a1*c0 - a0*c1)/D
+                pixel_coords_all.append([int(x_col),int(y_row)])
+                spot_coords_all.append([int(m),int(n)])
+        pixel_coords_all=np.array(list_remove_dup(pixel_coords_all)).astype(int)
+        spot_coords_all=np.array(list_remove_dup(spot_coords_all)).astype(int)
+        return np.array(pixel_coords),pixel_coords_all,spot_coords_all,(x_dis+y_dis)/4
+    elif add_M9_20:
+        pixel_coords_all=[]
+        spot_coords_all=[]
+        for m in [channels_num + i for i in range(1,15)]:
+            for n in range(1,(all_n+1)):
+                a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                D = a0*b1 - a1*b0
+                y_row = (b0*c1 - b1*c0)/D
+                x_col = (a1*c0 - a0*c1)/D
+                pixel_coords_all.append([int(x_col),int(y_row)])
+                spot_coords_all.append([int(m),int(n)])
+        for n in [channels_num + i for i in range(1,15)]:
+            for m in range(1,(all_n+1)):
+                a0,b0,c0=line_Y_B['Y_B_line'+str(n)]
+                a1,b1,c1=line_X_A['X_A_line'+str(m)]
+                D = a0*b1 - a1*b0
+                y_row = (b0*c1 - b1*c0)/D
+                x_col = (a1*c0 - a0*c1)/D
+                pixel_coords_all.append([int(x_col),int(y_row)])
+                spot_coords_all.append([int(m),int(n)])
+        pixel_coords_all=np.array(list_remove_dup(pixel_coords_all)).astype(int)
+        spot_coords_all=np.array(list_remove_dup(spot_coords_all)).astype(int)
+        return np.array(pixel_coords),pixel_coords_all,spot_coords_all,(x_dis+y_dis)/4
+    else:
+        return np.array(pixel_coords),(x_dis+y_dis)/4  # x_dis 两个spot中心点距离
+
 def get_HE_mask(img_HE):
     import numpy as np
     from skimage import data,filters
@@ -1065,3 +1377,4 @@ def get_adata_STARsolo(sample,chip_type,reg,channels_num,barcode_numA,barcode_nu
     print("Reading runtime：", round(end_time - start_time,0), "s")
     print('-')
     return adata
+
