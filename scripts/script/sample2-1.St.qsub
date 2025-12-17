@@ -1,0 +1,13 @@
+#PBS -N sample2-1
+#PBS -l nodes=1:ppn=20
+#PBS -l walltime=72:00:00
+#PBS -j oe
+#PBS -q silver
+
+set -e
+
+cd /histor/zhao/pangkun/Zhaolab/Hubeiyu/20230712-T3-70-32um-ele/qsub/qsub_solo/
+
+bash sample2-1.St.sh
+
+
