@@ -25,6 +25,8 @@ For the QC step(optional), the stpipeline/common/filterInputReads.py in st_pipel
 
 QC step can be omitted to save most of the program running time.
 
+The latest MAGIC-seq preprocessing scripts are located in MAGIC-seq/scripts/PLATO-MAGIC-seq-Cere/script/
+
 seqkit v2.0.0
 fastp v0.23.4
 STAR v2.7.11a
